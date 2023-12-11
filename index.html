@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Reverse Text</h2>
+<p>Input:</p>
+<textarea id="input"></textarea>
+<br/>
+<button onclick="convert()">Convert</button>
+<br/>
+<p>Output:</p>
+<textarea id="output"></textarea>
+<br/>
+<button onclick="copyOutput()">Copy Output To Clipboard</button>
+<script>
+function convert() {
+const text = document.getElementById("input").value;
+let output = ""
+for (const letter of text) {
+  output = letter + output;
+}
+document.getElementById("output").value = output;
+}
+function copyOutput() {
+  var copyText = document.getElementById("output");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value);
+  alert("Output Copied");
+}
+</script>
+</body>
+</html>
